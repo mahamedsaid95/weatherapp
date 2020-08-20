@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Weather App Dashboard</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+      <div class="row firstRow">
+
+        <div class="jumbotron" style="background-color: #20315A ; color: white;">
+          <h1 class="text-center">
+            <strong>
+              <i class="fa fa-weather-o"></i> Weather Dashboard</strong>
+          </h1>
+        </div>
+
+      </div>
+
+      <div class="row secondRow">
+
+        <div class="col firstColumn">
+          <div class="form-group">
+            <label for="search">Search for a City:</label>
+            <input type="text" class="form-control" id="searchterm">
+            <button id="getweather" type="submit">Submit</button>
+
+          </div>
+          <div id="citySearch"></div>
+        </div>
+
+        <div class="col-sm-8 ml-3 secondColumn">
+          <div class="row firstRow-of-secondColumn">
+            <div id="city-data-column" class="col">
+              <h1 class="city"></h1>
+              <div class="wind"></div>
+              <div class="humidity"></div>
+              <div class="temp"></div>
+              <img  id = "imgtag" src="" alt="">
+              <p id="uvindex"></p>
+            </div>
+          </div>
+          <div class="row secondRow-of-secondColumn">
+            <!-- <div class="row firstRow-of-secondRow-of-secondColumn"> 5-Day Forcast</div> -->
+            <h1>Five Day Forecast</h1>
+            <div id ="dataFromPromise"  class="row secondRow-of-secondRow-of-secondColumn">
+              <!-- <div class="first-column col mr-3" style="background-color: green; color:white; height: 200px; width: 150px;">
+                <div class="date row">Date</div>
+                <div class="icon row">
+                  <img class="imgtag" src="" alt="Icon">
+                </div>
+                <div class="temperature row">temperature</div>
+                <div class="humidity row">humidity</div>
+              </div>
+              <div class="second-column col mr-3" style="background-color: green; color:white; height: 200px; width: 150px;">
+                <div class="date row">Date</div>
+                <div class="icon row">
+                  <img class="imgtag" src="" alt="Icon">
+                </div>
+                <div class="temperature row">temperature</div>
+                <div class="humidity row">humidity</div>
+              </div>
+              <div class="third-column col mr-3" style="background-color: green; color:white; height: 200px; width: 150px;">
+                <div class="date row">Date</div>
+                <div class="icon row">
+                  <img class="imgtag" src="" alt="Icon">
+                </div>
+                <div class="temperature row">temperature</div>
+                <div class="humidity row">humidity</div>
+              </div>
+              <div class="fourth-column col mr-3" style="background-color: green; color:white; height: 200px; width: 150px;">
+                <div class="date row">Date</div>
+                <div class="icon row">
+                  <img class="imgtag" src="" alt="Icon">
+                </div>
+                <div class="temperature row">temperature</div>
+                <div class="humidity row">humidity</div>
+              </div>
+              <div class="fith-column col" style="background-color: green; color:white; height: 200px; width: 150px;">
+                <div class="date row">Date</div>
+                <div class="icon row">
+                  <img class="imgtag" src="" alt="Icon">
+                </div>
+                <div class="temperature row">temperature</div>
+                <div class="humidity row">humidity</div>
+              </div> -->
+              
+                    <!-- Append data here-->
+            <div id="getfivedayforcast"></div>
+            <!--<div id="getfivedayhumidity"></div>
+          
+            <div class="uv-index"></div>
+            </div>
+          </div>
+
+          <div class="row thirdRow"</div> -->
+        </div>
+
+  
+
+      </div>
+      
+
+  
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="./Assets/script.js"></script> 
+</body>
+
+</html>
