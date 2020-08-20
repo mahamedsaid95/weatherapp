@@ -1,7 +1,6 @@
 
 var APIKey = "b17c321e09f505d0c59f40f8ee7903cf"
 var previousSearch = JSON.parse(localStorage.getItem("previouscities")) || []
-//var previousSearch = localStorage.getItem("cityName")
 
 function displayLocalstorage (){
   console.log(previousSearch)
@@ -30,10 +29,8 @@ function getcurrentweather(cityname){
 
 .then(function(response) {
 
-  // Log the queryURL
   console.log(queryURL);
 
-  // Log the resulting object
   console.log(response);
   
   var lat = response.coord.lat
@@ -42,7 +39,6 @@ function getcurrentweather(cityname){
 
   getuvIndex(lat, lon);
 
-  // Transfer content to HTML
   $(".city").text(response.name + " Weather Details");
   $(".wind").text("Wind Speed: " + response.wind.speed);
   $(".humidity").text("Humidity: " + response.main.humidity);
@@ -50,7 +46,6 @@ function getcurrentweather(cityname){
 
   $(".temp").text("Temperature: " + response.main.temp);
 
-  // Thereafter, we have to save the data in our local storage. 
       console.log("Wind Speed: " + response.wind.speed);
       console.log("Humidity: " + response.main.humidity);
 
@@ -73,7 +68,7 @@ $.ajax({
 
 .then(function(response) {
 
-  // Log the queryURL
+  
   console.log(queryURL);
 
   console.log(response)
@@ -95,32 +90,23 @@ function get5dayforcast(cityname) {
     
     .then(function(response) {
   
-      // Log the queryURL
+      
       console.log(queryURL);
   
       console.log("get5dayforcast", response)
       var fivedayforcast = $("<div/>")
   
       var container = $("<div class='row mt-3'/>");
-      // $(container).attr("class", "col-sm-2")
-      // container.setAttribute("class", "col-sm-2")
+    
   
       var forcast = $("<p/>");
       var humidity = $("<p/>");
-      // var uvIndex = $("<p/>");
+      
       var temperature = $("<p/>");
   
-      // create four more variables that represent the tags within the HTMl
-      //At the end of the loop, append everything to var container
   
       for (var i = 0; i < response.list.length; i=i+8) {
         console.log("fivedayforcasttemp", response.list[i].main.temp);
-  
-        // forcast.innerHTML = "Forcast = " + response.list[i].main.forcast
-  
-        // container.append(forcast);
-  
-       // $("<div>" + "<p>" + "Temperature " + response.list[i].main.temp + "</p>" +  "<p>" + "Humidity " + response.list[i].main.humidity + "</p>" + "</div>")
         
         container.append(
           `<div class='col mr-3' style='background-color: blue; color: white'> 
@@ -139,10 +125,7 @@ function get5dayforcast(cityname) {
   
       $("#dataFromPromise").html(container);
       console.log(container);
-      // $("<div>" + "<p>" + "Temperature " + response.list[i].main.temp + "</p>" +  "<p>" + "Humidity " + response.list[i].main.humidity + "</p>" + "</div>")
     });
-      //console.log("fivedayforcasttemp", response.list[0].main.temp);
-     // console.log("fivedayforcasthumidity", response.list[0].main.humidity);
   }
   
   
