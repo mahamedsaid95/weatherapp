@@ -1,4 +1,3 @@
-// run our AJAX to call the OpenWeatherMap API
 
 var APIKey = "b17c321e09f505d0c59f40f8ee7903cf"
 var previousSearch = JSON.parse(localStorage.getItem("previouscities")) || []
