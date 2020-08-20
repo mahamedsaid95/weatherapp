@@ -20,3 +20,66 @@ $("#getweather").on("click", function(){
   previousSearch.push(cityname)
   window.localStorage.setItem('previouscities', JSON.stringify(previousSearch))
 })
+function getcurrentweather(cityname){
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${APIKey}&units=imperial`
+
+  $.ajax({                               
+  url: queryURL,
+  method: "GET"
+})
+
+
+.then(function(response) {
+
+  // Log the queryURL
+  console.log(queryURL);
+
+  // Log the resulting object
+  console.log(response);
+  
+  var lat = response.coord.lat
+
+  var lon = response.coord.lon
+
+  getuvIndex(lat, lon);
+
+  // Transfer content to HTML
+  $(".city").text(response.name + " Weather Details");
+  $(".wind").text("Wind Speed: " + response.wind.speed);
+  $(".humidity").text("Humidity: " + response.main.humidity);
+  $("#imgtag").attr("src", `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`);
+
+  $(".temp").text("Temperature: " + response.main.temp);
+
+  // Thereafter, we have to save the data in our local storage. 
+      console.log("Wind Speed: " + response.wind.speed);
+      console.log("Humidity: " + response.main.humidity);
+
+   let myCityName = window.localStorage.getItem("cityName")
+
+   $('#citySearch').html('<div>' +myCityName + '</div>');
+
+  });
+}
+
+function getuvIndex(lat,lon) {
+var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`         // We neeed the URL to query the database
+
+
+$.ajax({                                
+  url: queryURL,
+  method: "GET"
+})
+
+
+.then(function(response) {
+
+  // Log the queryURL
+  console.log(queryURL);
+
+  console.log(response)
+
+  $("#uvindex").text("uvindex: " + response.value);
+ 
+});
+}
